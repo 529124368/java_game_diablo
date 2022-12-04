@@ -1,8 +1,14 @@
 package com.niubi.player;
 
-public class Player {
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.niubi.player.impl.PlayerImpl;
+
+public class Player implements PlayerImpl {
     private float x;
     private float y;
+    SpriteBatch batch;
+    Texture img;
 
     public float getX() {
         return x;
@@ -23,6 +29,15 @@ public class Player {
     public Player() {
         x = 0;
         y = 0;
+    }
+
+    public void render() {
+
+    }
+
+    public void dispose() {
+        batch.dispose();
+        img.dispose();
     }
 
 }

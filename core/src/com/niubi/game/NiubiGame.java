@@ -18,7 +18,6 @@ public class NiubiGame extends ApplicationAdapter {
 		player = new Player();
 		batch = new SpriteBatch();
 		img = new Texture("img/badlogic.jpg");
-
 	}
 
 	@Override

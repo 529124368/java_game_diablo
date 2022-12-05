@@ -87,7 +87,7 @@ public class DefaultPlayer implements Player {
      */
     @Override
     public void initJson() {
-        FileHandle handle = Gdx.files.internal("assets/json/ba.json");
+        FileHandle handle = Gdx.files.internal("json/ba.json");
         // jackson
         ObjectMapper m = new ObjectMapper();
         try {

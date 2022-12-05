@@ -11,4 +11,6 @@ public interface Player {
 
     public void getImageByInfo(Action action, Integer frameNum, Integer direction);
 
+    public void setPostion();
+
 }

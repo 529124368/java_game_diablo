@@ -5,5 +5,9 @@ public class Define {
         Idle, Attack, Run
     }
 
-    public static final short IdleFrame = 15;
+    public static final Integer RunFrame = 8;
+    public static final Integer IdleFrame = 16;
+    public static final Integer ScreenWidth = 1200;
+    public static final Integer ScreenHeight = 900;
+
 }

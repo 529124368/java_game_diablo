@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,71 +17,81 @@ import com.niubi.config.Define;
 import com.niubi.config.Define.Action;
 import com.niubi.player.Player;
 import com.niubi.tools.JsonFormat;
-import com.niubi.tools.Position;
 
 public class DefaultPlayer implements Player {
-    private Position pos;
+    private Vector2 pos;
     private SpriteBatch batch;
     private Texture img;
     private Sprite sp;
     private TextureRegion texture;
     private JsonFormat result;
-    private Integer direction, frameNum;
+    private Integer direction, frameNum, currentFrame;
     private StringBuilder builer;
     private float delta;
+    private Action currentAction;
 
     public DefaultPlayer() {
+        // init variables
         delta = 0.0f;
         direction = 0;
         frameNum = 0;
         builer = new StringBuilder(16);
-        pos = new Position();
+        pos = new Vector2(Define.ScreenWidth / 2, Define.ScreenHeight / 2);
         batch = new SpriteBatch();
+        currentAction = Action.Idle;
+        currentFrame = Define.IdleFrame;
         // load texture
         img = new Texture("img/ba.png");
         sp = new Sprite();
         texture = new TextureRegion(img);
         // load json
         initJson();
-        getImageByInfo(Action.Idle, frameNum, direction);
+        getImageByInfo(currentAction, frameNum, direction);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.niubi.player.Player#render()
-     */
     @Override
     public void render() {
         delta += Gdx.graphics.getDeltaTime();
         if (delta > 0.1f) {
             delta = 0.0f;
             frameNum++;
-            frameNum %= Define.IdleFrame;
+            frameNum %= currentFrame;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            pos.setX(pos.getX() - 5);
+            pos.x = pos.x - 5;
             direction = 1;
 
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            pos.setX(pos.getX() + 5);
+            pos.x = pos.x + 5;
             direction = 2;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            pos.setY(pos.getY() + 5);
+            pos.y = pos.y + 5;
             direction = 3;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            pos.setY(pos.getY() - 5);
+            pos.y = pos.y - 5;
             direction = 4;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.G)) {
+            if (currentAction == Action.Idle) {
+                currentAction = Action.Run;
+                currentFrame = Define.RunFrame;
+            } else {
+                currentAction = Action.Idle;
+                currentFrame = Define.IdleFrame;
+            }
         }
         // draw the background
         ScreenUtils.clear(0, 0, 0, 1);
-        getImageByInfo(Action.Idle, frameNum, direction);
+        // get Image
+        getImageByInfo(currentAction, frameNum, direction);
+        // draw pos
+        setPostion();
+
         batch.begin();
         sp.draw(batch);
-        sp.setPosition(pos.getX(), pos.getY());
         batch.end();
     }
 
@@ -90,11 +101,6 @@ public class DefaultPlayer implements Player {
         img.dispose();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.niubi.player.Player#initJson()
-     */
     @Override
     public void initJson() {
         FileHandle handle = Gdx.files.internal("json/ba.json");
@@ -107,10 +113,7 @@ public class DefaultPlayer implements Player {
         }
     }
 
-    /**
-     * @param action
-     * @param frameNum
-     */
+    @Override
     @SuppressWarnings("unchecked")
     public void getImageByInfo(Action action, Integer frameNum, Integer direction) {
         builer.delete(0, builer.length());
@@ -118,15 +121,16 @@ public class DefaultPlayer implements Player {
         switch (action) {
             case Idle:
                 builer.append("_stand_");
+                currentFrame = Define.IdleFrame;
                 break;
             case Attack:
                 builer.append("_attack_");
                 break;
             case Run:
                 builer.append("_run_");
+                currentFrame = Define.RunFrame;
             default:
                 break;
-
         }
         builer.append(frameNum.toString());
         builer.append(".png");
@@ -138,8 +142,17 @@ public class DefaultPlayer implements Player {
                 info.get("w").intValue(),
                 info.get("h").intValue());
         sp.setRegion(texture);
-        sp.setSize(info.get("w").intValue(), info.get("h").intValue());
-        sp.setScale(5, 5);
+        sp.setSize(info.get("w").floatValue(), info.get("h").floatValue());
     }
 
+    @Override
+    @SuppressWarnings("unchecked")
+    public void setPostion() {
+        Object offset = result.getFrames().get(builer.toString()).get("spriteSourceSize");
+        Map<String, Number> offsets = (Map<String, Number>) offset;
+        sp.setOriginCenter();
+        sp.setOriginBasedPosition(offsets.get("x").floatValue() + pos.x,
+                offsets.get("y").floatValue() + pos.y);
+        sp.setScale(2, 2);
+    }
 }

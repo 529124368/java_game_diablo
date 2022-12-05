@@ -1,6 +1,6 @@
 package com.niubi.player;
 
-import com.niubi.config.Const.Action;
+import com.niubi.config.Define.Action;
 
 public interface Player {
     void render();

@@ -12,7 +12,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.niubi.config.Const.Action;
+import com.niubi.config.Define;
+import com.niubi.config.Define.Action;
 import com.niubi.player.Player;
 import com.niubi.tools.JsonFormat;
 import com.niubi.tools.Position;
@@ -24,12 +25,15 @@ public class DefaultPlayer implements Player {
     private Sprite sp;
     private TextureRegion texture;
     private JsonFormat result;
-    private Integer direction;
-    private Integer frameNum;
+    private Integer direction, frameNum;
+    private StringBuilder builer;
+    private float delta;
 
     public DefaultPlayer() {
+        delta = 0.0f;
         direction = 0;
         frameNum = 0;
+        builer = new StringBuilder(16);
         pos = new Position();
         batch = new SpriteBatch();
         // load texture
@@ -48,6 +52,12 @@ public class DefaultPlayer implements Player {
      */
     @Override
     public void render() {
+        delta += Gdx.graphics.getDeltaTime();
+        if (delta > 0.1f) {
+            delta = 0.0f;
+            frameNum++;
+            frameNum %= Define.IdleFrame;
+        }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             pos.setX(pos.getX() - 5);
             direction = 1;
@@ -103,7 +113,7 @@ public class DefaultPlayer implements Player {
      */
     @SuppressWarnings("unchecked")
     public void getImageByInfo(Action action, Integer frameNum, Integer direction) {
-        StringBuilder builer = new StringBuilder(16);
+        builer.delete(0, builer.length());
         builer.append(direction.toString());
         switch (action) {
             case Idle:

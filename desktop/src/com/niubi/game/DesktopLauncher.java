@@ -9,6 +9,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setWindowedMode(1200, 800);
+		config.setIdleFPS(15);
 		config.setTitle("暗黑破坏神demo");
 		new Lwjgl3Application(new NiubiGame(), config);
 	}

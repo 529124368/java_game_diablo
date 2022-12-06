@@ -24,6 +24,7 @@ public class DefaultPlayer implements Player {
     private TextureAtlas atlas;
 
     public DefaultPlayer() {
+
         direction = 5;
         frameNum = 0;
         currentFrame = Define.IdleFrame;
@@ -68,9 +69,9 @@ public class DefaultPlayer implements Player {
         }
         // get Image
         Sprite sp = getImageByInfo(currentAction, frameNum, direction);
-        // draw the background
-        batch.begin();
         setPostion(sp);
+        // draw
+        batch.begin();
         sp.draw(batch);
         batch.end();
 

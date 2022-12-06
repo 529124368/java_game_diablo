@@ -1,6 +1,6 @@
 package com.niubi.player;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.niubi.config.Define.Action;
 
 public interface Player {
@@ -8,10 +8,7 @@ public interface Player {
 
     void dispose();
 
-    void initJson();
+    Sprite getImageByInfo(Action action, Integer frameNum, Integer direction);
 
-    public void getImageByInfo(Action action, Integer frameNum, Integer direction);
-
-    public void setPostion();
-
+    void setPostion(Sprite sp);
 }

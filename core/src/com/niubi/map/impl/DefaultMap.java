@@ -3,6 +3,7 @@ package com.niubi.map.impl;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import com.badlogic.gdx.math.Vector2;
 import com.niubi.map.Map;
 
@@ -17,10 +18,11 @@ public class DefaultMap implements Map {
         img = new Texture("map/map.png");
         sp = new Sprite(img);
         sp.setPosition(pos.x, pos.y);
+
     }
 
     @Override
-    public void render() {
+    public final void render() {
 
         batch.begin();
         sp.draw(batch);

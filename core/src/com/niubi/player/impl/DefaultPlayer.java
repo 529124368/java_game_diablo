@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.niubi.config.Define;
@@ -19,26 +18,22 @@ import com.niubi.player.Player;
 import com.niubi.tools.JsonFormat;
 
 public class DefaultPlayer implements Player {
-    private Vector2 pos;
-    private SpriteBatch batch;
+    private Vector2 pos = new Vector2(Define.ScreenWidth / 2, Define.ScreenHeight / 2);;
+    private SpriteBatch batch = new SpriteBatch();;
     private Texture img;
     private Sprite sp;
     private TextureRegion texture;
     private JsonFormat result;
     private Integer direction, frameNum, currentFrame;
-    private StringBuilder builer;
+    private StringBuilder builer = new StringBuilder(16);
     private float delta;
-    private Action currentAction;
+    private Action currentAction = Action.Idle;
 
     public DefaultPlayer() {
         // init variables
         delta = 0.0f;
-        direction = 0;
+        direction = 5;
         frameNum = 0;
-        builer = new StringBuilder(16);
-        pos = new Vector2(Define.ScreenWidth / 2, Define.ScreenHeight / 2);
-        batch = new SpriteBatch();
-        currentAction = Action.Idle;
         currentFrame = Define.IdleFrame;
         // load texture
         img = new Texture("img/ba.png");
@@ -55,12 +50,10 @@ public class DefaultPlayer implements Player {
         if (delta > 0.1f) {
             delta = 0.0f;
             frameNum++;
-            frameNum %= currentFrame;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             pos.x = pos.x - 5;
             direction = 1;
-
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             pos.x = pos.x + 5;
@@ -84,21 +77,14 @@ public class DefaultPlayer implements Player {
             }
         }
         // draw the background
-        ScreenUtils.clear(0, 0, 0, 1);
+        batch.begin();
         // get Image
         getImageByInfo(currentAction, frameNum, direction);
+        sp.draw(batch);
+        batch.end();
         // draw pos
         setPostion();
 
-        batch.begin();
-        sp.draw(batch);
-        batch.end();
-    }
-
-    @Override
-    public void dispose() {
-        batch.dispose();
-        img.dispose();
     }
 
     @Override
@@ -132,11 +118,13 @@ public class DefaultPlayer implements Player {
             default:
                 break;
         }
+        frameNum %= currentFrame;
         builer.append(frameNum.toString());
         builer.append(".png");
         Object res = result.getFrames().get(builer.toString()).get("frame");
         Map<String, Number> info = (Map<String, Number>) res;
         texture.setTexture(img);
+
         texture.setRegion(info.get("x").intValue(),
                 info.get("y").intValue(),
                 info.get("w").intValue(),
@@ -150,9 +138,17 @@ public class DefaultPlayer implements Player {
     public void setPostion() {
         Object offset = result.getFrames().get(builer.toString()).get("spriteSourceSize");
         Map<String, Number> offsets = (Map<String, Number>) offset;
+
+        sp.setPosition(offsets.get("x").floatValue(), offsets.get("y").floatValue());
         sp.setOriginCenter();
-        sp.setOriginBasedPosition(offsets.get("x").floatValue() + pos.x,
-                offsets.get("y").floatValue() + pos.y);
-        sp.setScale(2, 2);
+        sp.setScale(1.5f, 1.5f);
+        sp.setOriginBasedPosition(pos.x,
+                pos.y);
+    }
+
+    @Override
+    public void dispose() {
+        batch.dispose();
+        img.dispose();
     }
 }

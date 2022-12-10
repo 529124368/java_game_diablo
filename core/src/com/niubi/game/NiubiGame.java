@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.niubi.config.Define;
-import com.niubi.config.Define.ControllerType;
+import com.niubi.config.Storage;
+import com.niubi.config.Storage.ControllerType;
 import com.niubi.controller.Controller;
 import com.niubi.controller.impl.MobileIml;
 import com.niubi.controller.impl.PcIml;
@@ -27,7 +27,7 @@ public class NiubiGame extends ApplicationAdapter {
 		map = new MapImpl();
 
 		// 控制器初始化
-		if (Define.controllerType.equals(ControllerType.PC)) {
+		if (Storage.controllerType.equals(ControllerType.PC)) {
 			ctl = new PcIml();
 		} else {
 			ctl = new MobileIml();

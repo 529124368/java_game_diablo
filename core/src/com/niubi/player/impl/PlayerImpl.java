@@ -10,12 +10,12 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import com.badlogic.gdx.math.Vector2;
 
-import com.niubi.config.Define;
-import com.niubi.config.Define.Action;
+import com.niubi.config.Storage;
+import com.niubi.config.Storage.Action;
 import com.niubi.player.Player;
 
 public class PlayerImpl implements Player {
-    private Vector2 pos = new Vector2(Define.ScreenWidth / 2, Define.ScreenHeight / 2);;
+    private Vector2 pos = new Vector2(Storage.ScreenWidth / 2, Storage.ScreenHeight / 2);;
     private SpriteBatch batch = new SpriteBatch();;
 
     private int direction, frameNum, currentFrame;
@@ -29,7 +29,7 @@ public class PlayerImpl implements Player {
 
         direction = 5;
         frameNum = 0;
-        currentFrame = Define.IdleFrame;
+        currentFrame = Storage.IdleFrame;
 
         atlas = new TextureAtlas(Gdx.files.internal("img/ba"));
 
@@ -47,10 +47,10 @@ public class PlayerImpl implements Player {
         if (Gdx.input.isKeyPressed(Input.Keys.G)) {
             if (currentAction == Action.Idle) {
                 currentAction = Action.Run;
-                currentFrame = Define.RunFrame;
+                currentFrame = Storage.RunFrame;
             } else {
                 currentAction = Action.Idle;
-                currentFrame = Define.IdleFrame;
+                currentFrame = Storage.IdleFrame;
             }
         }
         // get Image
@@ -90,14 +90,14 @@ public class PlayerImpl implements Player {
         switch (action) {
             case Idle:
                 builer.append("_stand");
-                currentFrame = Define.IdleFrame;
+                currentFrame = Storage.IdleFrame;
                 break;
             case Attack:
                 builer.append("_attack");
                 break;
             case Run:
                 builer.append("_run");
-                currentFrame = Define.RunFrame;
+                currentFrame = Storage.RunFrame;
             default:
                 break;
         }

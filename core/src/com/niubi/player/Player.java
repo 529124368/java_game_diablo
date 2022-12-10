@@ -3,7 +3,7 @@ package com.niubi.player;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.niubi.config.Define.Action;
+import com.niubi.config.Storage.Action;
 
 public interface Player {
     void render();

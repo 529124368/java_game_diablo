@@ -19,28 +19,31 @@ public class PcIml implements Controller {
 
     @Override
     public List<Number> getResult() {
+        int x = 0;
+        int y = 0;
+        int dir = -1;
+        // 返回 x坐标 y坐标 direction方向 值
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            result.set(0, -5);
-            result.set(1, 0);
-            result.set(2, 1);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            result.set(0, 5);
-            result.set(1, 0);
-            result.set(2, 2);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            result.set(0, 0);
-            result.set(1, 5);
-            result.set(2, 3);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            result.set(0, 0);
-            result.set(1, -5);
-            result.set(2, 4);
-        } else {
-            result.set(0, 0);
-            result.set(1, 0);
-            result.set(2, -1);
+            x += -5;
+            dir = 1;
         }
-        return result;
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            x += 5;
+            dir = 2;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            y += 5;
+            dir = 3;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            y += -5;
+            dir = 4;
+        }
+        result.set(0, x);
+        result.set(1, y);
+        result.set(2, dir);
 
+        return result;
     }
+
 }

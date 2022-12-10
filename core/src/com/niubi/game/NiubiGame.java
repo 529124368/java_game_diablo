@@ -15,7 +15,7 @@ import com.niubi.player.Player;
 import com.niubi.player.impl.PlayerImpl;
 
 public class NiubiGame extends ApplicationAdapter {
-	private List<Number> res;
+	private int[] res;
 	private Player player;
 	private Map map;
 	private Controller ctl;
@@ -38,7 +38,7 @@ public class NiubiGame extends ApplicationAdapter {
 	public void render() {
 		res = ctl.getResult();
 		ScreenUtils.clear(0, 0, 0, 1);
-		map.render();
+		map.render(res);
 		player.render(res);
 	}
 

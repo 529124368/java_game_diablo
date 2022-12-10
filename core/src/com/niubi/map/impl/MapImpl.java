@@ -43,4 +43,22 @@ public class MapImpl implements Map {
         manager.dispose();
     }
 
+    @Override
+    public void render(int[] controller) {
+        if (manager.update()) {
+            if (!hasNew) {
+                sp = new Sprite((Texture) manager.get("map/map.png"));
+                sp.setPosition(pos.x, pos.y);
+                hasNew = true;
+            } else {
+                pos.x -= controller[0];
+                pos.y -= controller[1];
+            }
+            batch.begin();
+            sp.setPosition(pos.x, pos.y);
+            sp.draw(batch);
+            batch.end();
+        }
+    }
+
 }

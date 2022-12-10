@@ -62,16 +62,14 @@ public class PlayerImpl implements Player {
         batch.end();
     }
 
-    public final void render(List<Number> controller) {
+    public final void render(int[] controller) {
         delta += Gdx.graphics.getDeltaTime();
         if (delta > 0.1f) {
             delta = 0.0f;
             frameNum++;
         }
-        pos.x += controller.get(0).floatValue();
-        pos.y += controller.get(1).floatValue();
-        if (!controller.get(2).equals(-1)) {
-            direction = controller.get(2).intValue();
+        if (controller[2] != -1) {
+            direction = controller[2];
         }
 
         // get Image

@@ -1,24 +1,15 @@
 package com.niubi.controller.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.niubi.controller.Controller;
 
 public class PcIml implements Controller {
 
-    private List<Number> result = new ArrayList<>(3);
-
-    public PcIml() {
-        result.add(0);
-        result.add(0);
-        result.add(0);
-    }
+    private int[] result = new int[3];
 
     @Override
-    public List<Number> getResult() {
+    public int[] getResult() {
         int x = 0;
         int y = 0;
         int dir = -1;
@@ -39,9 +30,9 @@ public class PcIml implements Controller {
             y += -5;
             dir = 4;
         }
-        result.set(0, x);
-        result.set(1, y);
-        result.set(2, dir);
+        result[0] = x;
+        result[1] = y;
+        result[2] = dir;
 
         return result;
     }

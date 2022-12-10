@@ -12,7 +12,7 @@ import com.niubi.config.Define;
 import com.niubi.config.Define.Action;
 import com.niubi.player.Player;
 
-public class DefaultPlayer implements Player {
+public class PlayerImpl implements Player {
     private Vector2 pos = new Vector2(Define.ScreenWidth / 2, Define.ScreenHeight / 2);;
     private SpriteBatch batch = new SpriteBatch();;
 
@@ -23,7 +23,7 @@ public class DefaultPlayer implements Player {
 
     private TextureAtlas atlas;
 
-    public DefaultPlayer() {
+    public PlayerImpl() {
 
         direction = 5;
         frameNum = 0;

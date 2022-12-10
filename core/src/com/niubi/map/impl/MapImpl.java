@@ -8,14 +8,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.niubi.map.Map;
 
-public class DefaultMap implements Map {
+public class MapImpl implements Map {
     private Vector2 pos = new Vector2(-1200, -450);
     private SpriteBatch batch = new SpriteBatch();;
     private Sprite sp;
     private AssetManager manager;
     private boolean hasNew = false;
 
-    public DefaultMap() {
+    public MapImpl() {
         // load texture
         manager = new AssetManager();
         manager.load("map/map.png", Texture.class);

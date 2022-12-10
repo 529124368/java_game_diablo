@@ -3,9 +3,9 @@ package com.niubi.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.niubi.map.Map;
-import com.niubi.map.impl.DefaultMap;
+import com.niubi.map.impl.MapImpl;
 import com.niubi.player.Player;
-import com.niubi.player.impl.DefaultPlayer;
+import com.niubi.player.impl.PlayerImpl;
 
 public class NiubiGame extends ApplicationAdapter {
 	Player player;
@@ -14,8 +14,8 @@ public class NiubiGame extends ApplicationAdapter {
 	@Override
 	public void create() {
 
-		player = new DefaultPlayer();
-		map = new DefaultMap();
+		player = new PlayerImpl();
+		map = new MapImpl();
 	}
 
 	@Override

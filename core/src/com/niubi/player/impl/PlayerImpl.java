@@ -1,5 +1,7 @@
 package com.niubi.player.impl;
 
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -16,7 +18,7 @@ public class PlayerImpl implements Player {
     private Vector2 pos = new Vector2(Define.ScreenWidth / 2, Define.ScreenHeight / 2);;
     private SpriteBatch batch = new SpriteBatch();;
 
-    private Integer direction, frameNum, currentFrame;
+    private int direction, frameNum, currentFrame;
     private StringBuilder builer = new StringBuilder(16);
     private float delta = 0.0f;
     private Action currentAction = Action.Idle;
@@ -42,22 +44,6 @@ public class PlayerImpl implements Player {
             delta = 0.0f;
             frameNum++;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            pos.x = pos.x - 5;
-            direction = 1;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            pos.x = pos.x + 5;
-            direction = 2;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            pos.y = pos.y + 5;
-            direction = 3;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            pos.y = pos.y - 5;
-            direction = 4;
-        }
         if (Gdx.input.isKeyPressed(Input.Keys.G)) {
             if (currentAction == Action.Idle) {
                 currentAction = Action.Run;
@@ -74,7 +60,27 @@ public class PlayerImpl implements Player {
         batch.begin();
         sp.draw(batch);
         batch.end();
+    }
 
+    public final void render(List<Number> controller) {
+        delta += Gdx.graphics.getDeltaTime();
+        if (delta > 0.1f) {
+            delta = 0.0f;
+            frameNum++;
+        }
+        pos.x += controller.get(0).floatValue();
+        pos.y += controller.get(1).floatValue();
+        if (!controller.get(2).equals(-1)) {
+            direction = controller.get(2).intValue();
+        }
+
+        // get Image
+        Sprite sp = getImageByInfo(currentAction, frameNum, direction);
+        setPostion(sp);
+        // draw
+        batch.begin();
+        sp.draw(batch);
+        batch.end();
     }
 
     @Override

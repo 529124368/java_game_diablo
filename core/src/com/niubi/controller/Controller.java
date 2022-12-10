@@ -1,5 +1,7 @@
 package com.niubi.controller;
 
-public interface Controller {
+import java.util.List;
 
+public interface Controller {
+    List<Number> getResult();
 }

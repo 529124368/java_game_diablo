@@ -1,7 +1,11 @@
 package lsz.niubi.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 import lsz.niubi.config.Storage;
 import lsz.niubi.config.Storage.ControllerType;
@@ -19,8 +23,13 @@ public class NiubiGame extends ApplicationAdapter {
 	private Map map;
 	private Controller ctl;
 
+	private Viewport viewport;
+	private Camera camera;
+
 	@Override
 	public void create() {
+		camera = new PerspectiveCamera();
+		viewport = new FitViewport(Storage.ScreenWidth, Storage.ScreenHeight, camera);
 		// 角色地图加载
 		player = new PlayerImpl();
 		map = new MapImpl();
@@ -31,6 +40,10 @@ public class NiubiGame extends ApplicationAdapter {
 		} else {
 			ctl = new MobileIml();
 		}
+	}
+
+	public void resize(int width, int height) {
+		viewport.update(width, height);
 	}
 
 	@Override

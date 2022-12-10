@@ -12,7 +12,6 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(Storage.FPS);
 		config.setWindowedMode(Storage.ScreenWidth, Storage.ScreenHeight);
-		config.setResizable(false);
 		config.setIdleFPS(Storage.IDLE_FPS);
 		config.setTitle(Storage.GAME_TITLE);
 		new Lwjgl3Application(new NiubiGame(), config);

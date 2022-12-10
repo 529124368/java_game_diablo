@@ -1,4 +1,4 @@
-package com.niubi.config;
+package lsz.niubi.config;
 
 public class Storage {
     // 动作类型

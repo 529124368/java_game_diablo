@@ -1,7 +1,8 @@
-package com.niubi.player;
+package lsz.niubi.player;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.niubi.config.Storage.Action;
+
+import lsz.niubi.config.Storage.Action;
 
 public interface Player {
     void render();

@@ -1,4 +1,4 @@
-package com.niubi.tools;
+package lsz.niubi.tools;
 
 import java.util.Map;
 

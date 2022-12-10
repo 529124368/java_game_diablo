@@ -1,4 +1,4 @@
-package com.niubi.map.impl;
+package lsz.niubi.map.impl;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
@@ -6,7 +6,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import com.badlogic.gdx.math.Vector2;
-import com.niubi.map.Map;
+
+import lsz.niubi.map.Map;
 
 public class MapImpl implements Map {
     private Vector2 pos = new Vector2(-1200, -450);

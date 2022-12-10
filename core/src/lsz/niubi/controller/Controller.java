@@ -1,4 +1,4 @@
-package com.niubi.controller;
+package lsz.niubi.controller;
 
 public interface Controller {
     int[] getResult();

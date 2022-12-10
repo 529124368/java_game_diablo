@@ -1,6 +1,6 @@
-package com.niubi.controller.impl;
+package lsz.niubi.controller.impl;
 
-import com.niubi.controller.Controller;
+import lsz.niubi.controller.Controller;
 
 public class MobileIml implements Controller {
 

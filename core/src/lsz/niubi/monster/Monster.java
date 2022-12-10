@@ -1,6 +1,6 @@
-package com.niubi.monster;
+package lsz.niubi.monster;
 
-import com.niubi.config.Storage.Action;
+import lsz.niubi.config.Storage.Action;
 
 public interface Monster {
     void render();

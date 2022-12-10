@@ -1,6 +1,4 @@
-package com.niubi.player.impl;
-
-import java.util.List;
+package lsz.niubi.player.impl;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -10,9 +8,9 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import com.badlogic.gdx.math.Vector2;
 
-import com.niubi.config.Storage;
-import com.niubi.config.Storage.Action;
-import com.niubi.player.Player;
+import lsz.niubi.config.Storage;
+import lsz.niubi.config.Storage.Action;
+import lsz.niubi.player.Player;
 
 public class PlayerImpl implements Player {
     private Vector2 pos = new Vector2(Storage.ScreenWidth / 2, Storage.ScreenHeight / 2);;

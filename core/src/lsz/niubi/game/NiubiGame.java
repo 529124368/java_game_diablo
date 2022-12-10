@@ -1,18 +1,17 @@
-package com.niubi.game;
-
-import java.util.List;
+package lsz.niubi.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.niubi.config.Storage;
-import com.niubi.config.Storage.ControllerType;
-import com.niubi.controller.Controller;
-import com.niubi.controller.impl.MobileIml;
-import com.niubi.controller.impl.PcIml;
-import com.niubi.map.Map;
-import com.niubi.map.impl.MapImpl;
-import com.niubi.player.Player;
-import com.niubi.player.impl.PlayerImpl;
+
+import lsz.niubi.config.Storage;
+import lsz.niubi.config.Storage.ControllerType;
+import lsz.niubi.controller.Controller;
+import lsz.niubi.controller.impl.MobileIml;
+import lsz.niubi.controller.impl.PcIml;
+import lsz.niubi.map.Map;
+import lsz.niubi.map.impl.MapImpl;
+import lsz.niubi.player.Player;
+import lsz.niubi.player.impl.PlayerImpl;
 
 public class NiubiGame extends ApplicationAdapter {
 	private int[] res;

@@ -1,8 +1,9 @@
-package com.niubi.controller.impl;
+package lsz.niubi.controller.impl;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.niubi.controller.Controller;
+
+import lsz.niubi.controller.Controller;
 
 public class PcIml implements Controller {
 

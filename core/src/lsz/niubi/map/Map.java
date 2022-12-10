@@ -1,4 +1,4 @@
-package com.niubi.map;
+package lsz.niubi.map;
 
 public interface Map {
 

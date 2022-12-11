@@ -104,7 +104,7 @@ public class PlayerImpl implements Player {
     @Override
     public final void setPostion(Sprite sp) {
         sp.setPosition(pos.x, pos.y);
-        sp.setScale(1.5f, 1.5f);
+        // sp.setScale(1.5f, 1.5f);
     }
 
     @Override

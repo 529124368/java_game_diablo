@@ -11,6 +11,11 @@ public class Storage {
         PC, Mobile
     }
 
+    // 游戏场景分类
+    public enum GameScence {
+        Start, SelectRooler, Run
+    }
+
     // 常数
     public static final int FPS = 60;
     public static final int IDLE_FPS = 15;

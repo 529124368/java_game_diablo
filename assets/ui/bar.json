@@ -21,6 +21,18 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 		up: open_minipanel_btn
 		down: open_minipanel_down
 	}
+	shangla: {
+		up: close_minipanel_btn
+		down: close_minipanel_down
+	}
+	run: {
+		up: walk_button
+		down: walk_button_down
+	}
+	run_ok: {
+		up: run_button
+		down: run_button_down
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 	default: {

@@ -6,309 +6,302 @@ filter: Linear, Linear
 repeat: none
 0000
   rotate: false
-  xy: 1, 263
+  xy: 517, 913
   size: 128, 104
   orig: 128, 104
   offset: 0, 0
   index: -1
 0001
   rotate: false
-  xy: 259, 393
+  xy: 1, 139
   size: 128, 104
   orig: 128, 104
   offset: 0, 0
   index: -1
 0002
   rotate: false
-  xy: 517, 881
+  xy: 259, 627
   size: 128, 104
   orig: 128, 104
   offset: 0, 0
   index: -1
 0003
   rotate: false
-  xy: 1, 157
+  xy: 517, 807
   size: 128, 104
   orig: 128, 104
   offset: 0, 0
   index: -1
 0004
   rotate: false
-  xy: 517, 775
+  xy: 647, 913
   size: 128, 104
   orig: 128, 104
   offset: 0, 0
   index: -1
 0005
   rotate: false
-  xy: 1, 51
+  xy: 1, 33
   size: 128, 104
   orig: 128, 104
   offset: 0, 0
   index: -1
+00055
+  rotate: false
+  xy: 131, 140
+  size: 117, 103
+  orig: 117, 103
+  offset: 0, 0
+  index: -1
 0006
   rotate: false
-  xy: 517, 669
+  xy: 259, 521
   size: 128, 104
   orig: 128, 104
   offset: 0, 0
   index: -1
 HP
   rotate: false
-  xy: 389, 417
+  xy: 647, 831
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 MP
   rotate: false
-  xy: 517, 587
+  xy: 777, 937
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 bag_0
   rotate: false
-  xy: 1, 627
+  xy: 1, 761
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bag_1
   rotate: false
-  xy: 259, 757
+  xy: 1, 503
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 chisha
   rotate: false
-  xy: 1, 1
+  xy: 259, 471
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 close_btn_down
   rotate: false
-  xy: 647, 953
+  xy: 389, 699
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 close_btn_on
   rotate: false
-  xy: 471, 465
+  xy: 517, 773
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 close_minipanel_btn
   rotate: false
-  xy: 181, 216
+  xy: 309, 473
   size: 15, 24
   orig: 15, 24
   offset: 0, 0
   index: -1
 close_minipanel_down
   rotate: false
-  xy: 647, 905
+  xy: 131, 42
   size: 15, 24
   orig: 15, 24
   offset: 0, 0
   index: -1
 eq_0
   rotate: false
-  xy: 1, 369
+  xy: 259, 761
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 eq_1
   rotate: false
-  xy: 259, 499
+  xy: 1, 245
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 liehuo
   rotate: false
-  xy: 131, 214
+  xy: 131, 90
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 miniPanel
   rotate: false
-  xy: 517, 987
+  xy: 259, 733
   size: 173, 26
   orig: 173, 26
   offset: 0, 0
   index: -1
 mini_menu_eq
   rotate: false
-  xy: 692, 993
+  xy: 434, 739
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_eq_down
   rotate: false
-  xy: 259, 371
+  xy: 647, 809
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_j
   rotate: false
-  xy: 389, 395
+  xy: 777, 915
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_j_down
   rotate: false
-  xy: 51, 29
+  xy: 859, 997
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_m
   rotate: false
-  xy: 131, 192
+  xy: 259, 449
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_m_down
   rotate: false
-  xy: 181, 242
+  xy: 309, 499
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_man
   rotate: false
-  xy: 647, 931
+  xy: 131, 68
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_man_down
   rotate: false
-  xy: 471, 443
+  xy: 181, 118
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_mess
   rotate: false
-  xy: 517, 533
+  xy: 389, 677
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_mess_down
   rotate: false
-  xy: 549, 565
+  xy: 551, 785
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_s
   rotate: false
-  xy: 599, 615
+  xy: 33, 11
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_s_down
   rotate: false
-  xy: 714, 993
+  xy: 729, 859
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_st
   rotate: false
-  xy: 281, 371
+  xy: 456, 739
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mini_menu_st_down
   rotate: false
-  xy: 411, 395
+  xy: 669, 809
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 open_minipanel_btn
   rotate: false
-  xy: 471, 417
+  xy: 181, 92
   size: 15, 24
   orig: 15, 24
   offset: 0, 0
   index: -1
 open_minipanel_down
   rotate: false
-  xy: 517, 507
+  xy: 389, 651
   size: 15, 24
   orig: 15, 24
   offset: 0, 0
   index: -1
 run_button
   rotate: false
-  xy: 51, 7
+  xy: 799, 915
   size: 16, 20
   orig: 16, 20
   offset: 0, 0
   index: -1
 run_button_down
   rotate: false
-  xy: 73, 29
+  xy: 859, 975
   size: 16, 20
   orig: 16, 20
   offset: 0, 0
   index: -1
 skill_btn
   rotate: false
-  xy: 517, 555
+  xy: 1, 1
   size: 30, 30
   orig: 30, 30
   offset: 0, 0
   index: -1
 skill_btn_down
   rotate: false
-  xy: 599, 637
+  xy: 729, 881
   size: 30, 30
   orig: 30, 30
   offset: 0, 0
   index: -1
 walk_button
   rotate: false
-  xy: 131, 170
+  xy: 881, 997
   size: 16, 20
   orig: 16, 20
   offset: 0, 0
   index: -1
 walk_button_down
   rotate: false
-  xy: 153, 192
+  xy: 259, 427
   size: 16, 20
   orig: 16, 20
-  offset: 0, 0
-  index: -1
-00055
-  rotate: false
-  xy: 131, 264
-  size: 117, 103
-  orig: 117, 103
-  offset: 0, 0
-  index: -1
-bfQdvn3LrvabfEYjzzoDwfEW.ttf_0
-  rotate: false
-  xy: 1, 885
-  size: 256, 128
-  orig: 256, 128
   offset: 0, 0
   index: -1

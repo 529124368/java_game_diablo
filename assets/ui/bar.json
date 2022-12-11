@@ -1,29 +1,8 @@
 {
-com.badlogic.gdx.graphics.g2d.BitmapFont: {
-	bfQdvn3LrvabfEYjzzoDwfEWttf: {
-		file: bfQdvn3LrvabfEYjzzoDwfEW.ttf.fnt
-	}
-}
-com.badlogic.gdx.graphics.Color: {
-	RGBA_224_29_29_255: {
-		r: 0.8784314
-		g: 0.11372549
-		b: 0.11372549
-		a: 1
-	}
-}
 com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 	default: {
 		up: close_btn_down
 		down: close_btn_on
-	}
-	xiala: {
-		up: open_minipanel_btn
-		down: open_minipanel_down
-	}
-	shangla: {
-		up: close_minipanel_btn
-		down: close_minipanel_down
 	}
 	run: {
 		up: walk_button
@@ -33,21 +12,47 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 		up: run_button
 		down: run_button_down
 	}
+	xiala: {
+		up: open_minipanel_btn
+		down: open_minipanel_down
+	}
+	shangla: {
+		up: close_minipanel_btn
+		down: close_minipanel_down
+	}
+	menu1: {
+		up: mini_menu_man
+		down: mini_menu_man_down
+	}
+	menu2: {
+		up: mini_menu_eq
+		down: mini_menu_eq_down
+	}
+	menu3: {
+		up: mini_menu_j
+		down: mini_menu_j_down
+	}
+	menu4: {
+		up: mini_menu_m
+		down: mini_menu_m_down
+	}
+	menu5: {
+		up: mini_menu_mess
+		down: mini_menu_mess_down
+	}
+	menu6: {
+		up: mini_menu_s
+		down: mini_menu_s_down
+	}
+	menu7: {
+		up: mini_menu_st
+		down: mini_menu_st_down
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 	default: {
 		imageUp: skill_btn
 		imageDown: skill_btn_down
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
-	default: {
-		font: bfQdvn3LrvabfEYjzzoDwfEWttf
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
-	default: {
-		label: default
 	}
 }
 }

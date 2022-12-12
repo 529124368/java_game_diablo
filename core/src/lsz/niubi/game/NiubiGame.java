@@ -1,6 +1,8 @@
 package lsz.niubi.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import lsz.niubi.config.Storage;
@@ -21,7 +23,9 @@ public class NiubiGame extends ApplicationAdapter {
 	private Map map;
 	private Controller ctl;
 	private Ui ui;
+	private boolean is_bgm_play = false;
 	public static GameScence currentScence = GameScence.Start;
+	private Music music;
 
 	@Override
 	public void create() {
@@ -30,6 +34,9 @@ public class NiubiGame extends ApplicationAdapter {
 		// 角色地图加载
 		player = new PlayerImpl();
 		map = new MapImpl();
+		// music
+		music = Gdx.audio.newMusic(Gdx.files.internal("music/dtowne.wav"));
+		music.setLooping(true);
 		// 控制器初始化
 		if (Storage.controllerType.equals(ControllerType.PC)) {
 			ctl = new PcIml();
@@ -50,6 +57,10 @@ public class NiubiGame extends ApplicationAdapter {
 				System.out.println("sdf");
 				break;
 			case Run:
+				if (!is_bgm_play) {
+					music.play();
+					is_bgm_play = true;
+				}
 				res = ctl.getResult();
 				map.render(res);
 				player.render(res);

@@ -1,4 +1,4 @@
-# java_game_diablo
+
 libgdx engine
 
 java字节码加密 -》 Allatori混淆器
@@ -9,6 +9,12 @@ java字节码加密 -》 Allatori混淆器
 java的包装类
 
 匿名内部类
+
+# 启动方法
+
+工程根目录
+
+.\gradlew desktop:run
 
 
 # 进展

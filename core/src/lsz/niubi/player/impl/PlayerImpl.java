@@ -29,7 +29,7 @@ public class PlayerImpl implements Player {
         frameNum = 0;
         currentFrame = Storage.IdleFrame;
 
-        atlas = new TextureAtlas(Gdx.files.internal("img/ba"));
+        atlas = new TextureAtlas(Gdx.files.internal("img/warr"));
 
         getImageByInfo(currentAction, frameNum, direction);
 

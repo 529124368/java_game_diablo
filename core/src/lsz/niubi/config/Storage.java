@@ -21,7 +21,7 @@ public class Storage {
     public static final int IDLE_FPS = 15;
     public static final String GAME_TITLE = "diablo demo";
     public static final Integer RunFrame = 8;
-    public static final Integer IdleFrame = 16;
+    public static final Integer IdleFrame = 10;
     public static final Integer ScreenWidth = 800;
     public static final Integer ScreenHeight = 600;
     public static final ControllerType controllerType = ControllerType.PC;

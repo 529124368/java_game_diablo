@@ -19,7 +19,7 @@ public class MapImpl implements Map {
     public MapImpl() {
         // load texture
         manager = new AssetManager();
-        manager.load("map/map.png", Texture.class);
+        manager.load("map/mon.png", Texture.class);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class MapImpl implements Map {
 
         if (manager.update()) {
             if (!hasNew) {
-                sp = new Sprite((Texture) manager.get("map/map.png"));
+                sp = new Sprite((Texture) manager.get("map/mon.png"));
                 sp.setPosition(pos.x, pos.y);
                 hasNew = true;
             }
@@ -48,7 +48,7 @@ public class MapImpl implements Map {
     public void render(int[] controller) {
         if (manager.update()) {
             if (!hasNew) {
-                sp = new Sprite((Texture) manager.get("map/map.png"));
+                sp = new Sprite((Texture) manager.get("map/mon.png"));
                 sp.setPosition(pos.x, pos.y);
                 hasNew = true;
             } else {

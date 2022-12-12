@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import lsz.niubi.config.Storage;
 import lsz.niubi.config.Storage.ControllerType;
+import lsz.niubi.config.Storage.GameScence;
 import lsz.niubi.controller.Controller;
 import lsz.niubi.controller.impl.MobileIml;
 import lsz.niubi.controller.impl.PcIml;
@@ -20,6 +21,7 @@ public class NiubiGame extends ApplicationAdapter {
 	private Map map;
 	private Controller ctl;
 	private Ui ui;
+	public static GameScence currentScence = GameScence.Start;
 
 	@Override
 	public void create() {
@@ -28,7 +30,6 @@ public class NiubiGame extends ApplicationAdapter {
 		// 角色地图加载
 		player = new PlayerImpl();
 		map = new MapImpl();
-
 		// 控制器初始化
 		if (Storage.controllerType.equals(ControllerType.PC)) {
 			ctl = new PcIml();
@@ -40,11 +41,21 @@ public class NiubiGame extends ApplicationAdapter {
 
 	@Override
 	public void render() {
-		res = ctl.getResult();
 		ScreenUtils.clear(0, 0, 0, 1);
-		map.render(res);
-		player.render(res);
-		ui.render();
+		switch (currentScence) {
+			case Start:
+				ui.render();
+				break;
+			case SelectRooler:
+				System.out.println("sdf");
+				break;
+			case Run:
+				res = ctl.getResult();
+				map.render(res);
+				player.render(res);
+				ui.render();
+				break;
+		}
 
 	}
 

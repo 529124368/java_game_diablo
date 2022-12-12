@@ -48,6 +48,9 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 		up: mini_menu_st
 		down: mini_menu_st_down
 	}
+	startgame: {
+		up: diabsmal_cel
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 	default: {

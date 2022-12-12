@@ -3,22 +3,24 @@ package lsz.niubi.ui;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Cursor;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import lsz.niubi.config.Storage;
+import lsz.niubi.config.Storage.GameScence;
+import lsz.niubi.game.NiubiGame;
 
 public class Ui {
     private Stage stage;
@@ -28,7 +30,36 @@ public class Ui {
         stage = new Stage(new FitViewport(Storage.ScreenWidth, Storage.ScreenHeight));
         skin = new Skin(Gdx.files.internal("ui/bar.json"));
         Gdx.input.setInputProcessor(stage);
+        // 鼠标重定义
+        Pixmap cursor = new Pixmap(Gdx.files.internal("ui/cursor.png"));
+        Cursor cursors = Gdx.graphics.newCursor(cursor, 0, 0);
+        Gdx.graphics.setCursor(cursors);
+        cursor.dispose();
 
+        //
+        Table StartGame = new Table();
+        StartGame.setFillParent(true);
+
+        Image image = new Image(skin, "title");
+        StartGame.add(image);
+
+        Button button = new Button(skin, "startgame");
+        StartGame.add(button).padLeft(-660.0f).padTop(200.0f);
+        button.addListener(new ClickListener() {
+            // @Override
+            public void clicked(InputEvent event, float x, float y) {
+                // 开始游戏
+                NiubiGame.currentScence = GameScence.Run;
+                stage.clear();
+                // 加载UI
+                loadGame();
+            }
+        });
+        stage.addActor(StartGame);
+
+    }
+
+    private void loadGame() {
         Table table = new Table();
         table.align(Align.bottom);
         table.setFillParent(true);
@@ -45,7 +76,8 @@ public class Ui {
         table.row();
 
         // 装备物件
-        final Container container1, container2, container3, container4, container5, container6, container7;
+        final Container container1, container2, container3, container4, container5,
+                container6, container7;
 
         container1 = new Container();
         Image image = new Image(skin, "objcurs_cel_frame0117");

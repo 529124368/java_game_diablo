@@ -64,70 +64,45 @@ public class Ui {
         table.align(Align.bottom);
         table.setFillParent(true);
 
+        Button roleImg = new Button(skin, "role");
+        table.add(roleImg).expandY().align(Align.topLeft);
+        table.row();
+
         final Image image1, image2;
         image1 = new Image(skin, "char_cel");
         image1.setVisible(false);
         table.add(image1).padRight(-300.0f).padBottom(28.0f);
 
-        image2 = new Image(skin, "inv_cel");
+        image2 = new Image(skin, "eq");
         image2.setVisible(false);
-        table.add(image2).padRight(-610.0f).padBottom(30.0f).align(Align.right);
+        table.add(image2).padRight(-610.0f).padBottom(-55.0f).align(Align.right);
 
         table.row();
 
         // 装备物件
-        final Container container1, container2, container3, container4, container5,
-                container6, container7;
+        final Container container1, container2, container3;
 
         container1 = new Container();
-        Image image = new Image(skin, "objcurs_cel_frame0117");
+        Image image = new Image(skin, "uuu_223");
         container1.setActor(image);
-        table.add(container1).padRight(-800.0f).padTop(-530.0f);
+        table.add(container1).padRight(-790.0f).padTop(-550.0f);
 
         container2 = new Container();
 
-        image = new Image(skin, "objcurs_cel_frame0118");
+        image = new Image(skin, "uuu_179");
         container2.setActor(image);
-        table.add(container2).padRight(-900.0f).padTop(-530.0f);
+        table.add(container2).padRight(-770.0f).padTop(-590.0f);
 
         container3 = new Container();
 
-        image = new Image(skin, "objcurs_cel_frame0109");
+        image = new Image(skin, "uuu_222");
         container3.setActor(image);
-        table.add(container3).padRight(-865.0f).padTop(-705.0f);
-
-        container4 = new Container();
-
-        image = new Image(skin, "objcurs_cel_frame0055");
-        container4.setActor(image);
-        table.add(container4).padRight(-815.0f).padTop(-670.0f);
-
-        container5 = new Container();
-
-        image = new Image(skin, "objcurs_cel_frame0159");
-        container5.setActor(image);
-        table.add(container5).padRight(-805.0f).padTop(-530.0f);
-
-        container6 = new Container();
-
-        image = new Image(skin, "objcurs_cel_frame0029");
-        container6.setActor(image);
-        table.add(container6).padRight(-777.0f).padTop(-380.0f);
-
-        container7 = new Container();
-
-        image = new Image(skin, "objcurs_cel_frame0018");
-        container7.setActor(image);
-        table.add(container7).padRight(-380.0f).padTop(-380.0f);
+        table.add(container3).padRight(-945.0f).padTop(-600.0f);
 
         final ArrayList<Container> eqlist = new ArrayList<>();
         eqlist.add(container1);
         eqlist.add(container2);
         eqlist.add(container3);
-        eqlist.add(container4);
-        eqlist.add(container5);
-        eqlist.add(container6);
-        eqlist.add(container7);
         for (Container eq : eqlist) {
             eq.setVisible(false);
         }

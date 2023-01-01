@@ -51,6 +51,9 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 	startgame: {
 		up: diabsmal_cel
 	}
+	role: {
+		up: Avatar - John
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 	default: {

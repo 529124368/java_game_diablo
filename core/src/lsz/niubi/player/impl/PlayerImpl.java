@@ -5,7 +5,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-
 import com.badlogic.gdx.math.Vector2;
 
 import lsz.niubi.config.Storage;
@@ -24,7 +23,6 @@ public class PlayerImpl implements Player {
     private TextureAtlas atlas;
 
     public PlayerImpl() {
-
         direction = 5;
         frameNum = 0;
         currentFrame = Storage.IdleFrame;
